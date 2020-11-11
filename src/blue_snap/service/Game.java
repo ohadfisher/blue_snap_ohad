@@ -43,16 +43,14 @@ public class Game {
             return false;
         }
 
-        for (Integer possibleMove : possibleMoves) {
-            if (possibleMove <= number) {
-                int updateNumber = number - possibleMove;
-                boolean isTharOptionToWinNextIteration = isThereOptionToWin(updateNumber, possibleMoves, smallestMove);
-                if (isTharOptionToWinNextIteration) {
-                    return false;
+        for (Integer move : possibleMoves) {
+            if (move <= number) {
+                if (!isThereOptionToWin(number - move, possibleMoves, smallestMove)) {
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 }
 
