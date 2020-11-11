@@ -22,7 +22,7 @@ public class Game {
 
         for (Integer move : possibleMovesSet) {
             if (move <= number) {
-                if (!isTharOptionToWin(number - move, possibleMovesSet, smallestMove)) {
+                if (!isThereOptionToWin(number - move, possibleMovesSet, smallestMove)) {
                     System.out.println("Move that win by doing the first step is: " + move);
                     return true;
                 }
@@ -32,7 +32,7 @@ public class Game {
     }
 
 
-    private boolean isTharOptionToWin
+    private boolean isThereOptionToWin
             (int number, Set<Integer> possibleMoves, Integer smallestMove) {
 
         if (possibleMoves.contains(number)) {
@@ -46,7 +46,7 @@ public class Game {
         for (Integer possibleMove : possibleMoves) {
             if (possibleMove <= number) {
                 int updateNumber = number - possibleMove;
-                boolean isTharOptionToWinNextIteration = isTharOptionToWin(updateNumber, possibleMoves, smallestMove);
+                boolean isTharOptionToWinNextIteration = isThereOptionToWin(updateNumber, possibleMoves, smallestMove);
                 if (isTharOptionToWinNextIteration) {
                     return false;
                 }
